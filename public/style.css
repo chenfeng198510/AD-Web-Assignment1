@@ -1,6 +1,6 @@
 .contact{
-    display:block;
-    
+   
+    position:relative;
 }
 
 .c {
@@ -12,4 +12,8 @@
 }
 .ind{
     display: inline-flex;
+}
+
+.bo{
+    position: relative;
 }
