@@ -8,8 +8,24 @@ router.get("/", (req, res)=> {
     res.render("index",{ 
         test1: test
     });
+
 });
 
+router.get("/contactus", (req, res)=> {
+    let test = req.oidc.isAuthenticated();
+    res.render("contactus",{  
+        test1: test
+    });
+
+});
+
+router.get("/index", (req, res)=> {
+    let test = req.oidc.isAuthenticated();
+    res.render("index",{  
+        test1: test
+    });
+
+});
 
 router.get("/secured", requiresAuth(), async (req, res)=> {
     let data ={}
@@ -29,6 +45,17 @@ router.get("/secured", requiresAuth(), async (req, res)=> {
     res.render("secured", { 
         title: "Secured Page",
         isAuthenticated: req.oidc.isAuthenticated(),
+        data
+    });
+});
+
+/*go to contact us*/
+router.get("/contactus", (req, res)=> {
+    let data ={}
+   
+    res.render("contactus", { 
+        title: "Contact Us",
+        
         data
     });
 });
