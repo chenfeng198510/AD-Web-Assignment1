@@ -20,7 +20,25 @@
     <br>
     <div style="margin:150px">
     <h1>Lovely Pet provides professional <br> host and health service for your pets!</h1>
-</div>
+
+    <section class="show">
+        <table class="table">
+            <tr>
+            <th>Name</th>
+            <th>image`</th>
+            <th>price</th>
+        </tr>
+        <% add.forEach(function(product){ %>
+            <tr> <td> <h4><%= product.name %></h4> </td>    
+            <td><img src="<%= product.image %>" alt="" style="width: 100px;height: 100px;"> </td>
+            <td><h5><%=product.price%></h5></td>
+            <td><a class="btn btn-warning" href="/product/<%= product._id %>">EDIT </a></td>
+            <td><form action="/product_delete/<%= product._id%>" method="POST"><button class="btn btn-danger">Delete</button></form></td>
+            </tr>
+        <% }) %>
+    </table>
+    </section>
+    
 </div>
 
 </body>
