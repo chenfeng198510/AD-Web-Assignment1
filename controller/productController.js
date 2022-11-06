@@ -122,7 +122,7 @@ const product_update = async (req, res) => {
     })
 }
 
-const product_delete = (req,res)=>{
+const product_delete = async (req,res)=>{
     Product.findByIdAndRemove(req.params.id,function (err){
         if(err){
             console.log(err);

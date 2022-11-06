@@ -5,14 +5,12 @@ const axios = require("axios");
 const productController = require('./../controller/productController');
 
 
-
-
 router.get('/', productController.product_index);
 router.get('/secured', requiresAuth(),productController.secured_endpoint);
 router.get('/create', requiresAuth(),productController.role_based_authentication)
 router.post('/add', productController.product_create_post);
 router.get('/product/:id', productController.product_edit_view);
 router.post('/product_edit/:id', productController.product_update);
-router.delete("/product_delete/:id", productController.product_delete);
+router.post("/delete/:id", productController.product_delete);
 
 module.exports = router;
