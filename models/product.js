@@ -9,6 +9,15 @@ const productSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  address:{
+    type: String,
+    trim: true,
+  },
+  city:{
+    type: String,
+    trim: true,
+  },
+
   price:{
     type:Number,
   },

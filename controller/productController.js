@@ -1,6 +1,8 @@
 const axios = require('axios');
 const Product = require('../models/product');
 require('dotenv').config();
+
+
 const product_index = (req, res)=> {
     let isAuthenticated = req.oidc.isAuthenticated();
     if(isAuthenticated) {
@@ -114,6 +116,8 @@ const product_update = async (req, res) => {
     doc.overwrite({
         name: req.body.name,
         image: req.body.image,
+        address: req.body.address,
+        city: req.body.city,
         price: req.body.price
     })
 
@@ -137,6 +141,14 @@ const product_delete = async (req,res)=>{
     })
   }
 
+const contact_us = (req, res)=> {
+    let isAuthenticated = req.oidc.isAuthenticated();
+    res.render("contactus", { 
+        title: "Contact Us",
+        isAuthenticated: isAuthenticated
+     });
+}
+
 module.exports = {
 product_index,
 secured_endpoint,
@@ -145,4 +157,5 @@ product_create_post,
 product_edit_view,
 product_update,
 product_delete,
+contact_us
 }

@@ -7,50 +7,39 @@
     <link rel="stylesheet" 
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="style.css" rel="stylesheet">
-    <title>Contact Us</title>
-
+    <title>Home</title>
 </head>
 <body>
-    <div class="bo">
-       
-        <% if(!isAuthenticated) { %>
-            <%- include ('partial/nav') %>
-            <h1 >Welcome to visit our Website!</h1>
-            <h1 >Your feedback is important for us!</h1>
-            <br>
-            <a href="/login" type="button" class="btn-lg btn-danger">Login</a>
 
-        <% } else { %>
-         <div class="new">
-            <style>
-            body {
-                background-image: url("background.jpg");
-               
-                background-repeat: no-repeat;
-                background-size: cover;
-                position: relative;
-            }
-        </style>
-       <%- include ('partial/nav1') %>
-       <br>
-       <br>
-       <br>
-       <br>
-        <div class="contact" style="position:relative; left: 580px;">
-            <h1 class="c">Welcome to visit our Website!</h1>
-            <h1 class="c">Your feedback is important for us!</h1>
-        <br>
-            <button type="button" class="btn-lg btn-success" style="margin:100px;">Email</button>
-       
-            <button type="button" class="btn-lg btn-success">Call Us</button>
-        </div>
-        </div>
-       <% } %>
-    </div>
-
-
+    <%- include ('partial/nav') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+<div class="ind" >
+    <div class="new">
+        <style>
+        body {
+            background-image: url("background.jpg");
+           
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
+   <br>
 
+   <br>
+    <div class="contact" style="position:relative; left: 580px;">
+        
+        <h1 class="c">Welcome to visit our Website!</h1>
+        <h1 class="c">Your feedback is important for us!</h1>
+    <br>
+        <button type="button" class="btn-lg btn-success" style="margin:100px;">Email</button>
+   
+        <button type="button" class="btn-lg btn-success">Call Us</button>
+    </div>
+
+</div>
+</div>
+
+</body>
 </html>

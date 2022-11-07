@@ -12,5 +12,8 @@ router.post('/add', productController.product_create_post);
 router.get('/product/:id', productController.product_edit_view);
 router.post('/product_edit/:id', productController.product_update);
 router.post("/delete/:id", productController.product_delete);
+router.get("/contactus",productController.contact_us)
+
+
 
 module.exports = router;
