@@ -45,7 +45,8 @@ const secured_endpoint = async (req, res)=> {
 
 
 const role_based_authentication = async(req,res) => {
-    let data = {}
+    let data = {};
+    
 const { token_type, access_token } = req.oidc.accessToken;
 
 try{
@@ -56,14 +57,18 @@ try{
         }
     });
     data = apiResponse.data;
-
-    // when there is not error, you will be redirected to the secured page with the data you get fromt the api
-    res.render('create', {
-        title: 'Admin User', 
+    Product.find().sort({
+        createdAt: -1
+    }).then(result => {
+        res.render("create", { 
+        title: 'Host User', 
         isAuthenticated: req.oidc.isAuthenticated(),
         user: req.oidc.user,
-        data: data
-    })
+        data: data,
+        add: result,
+         });
+    });
+    // when there is not error, you will be redirected to the secured page with the data you get fromt the api
 }catch(e) {
     console.log(e);
     res.render('notaccess', {
@@ -71,7 +76,6 @@ try{
         isAuthenticated: req.oidc.isAuthenticated()
       });
 }
-
 }
 
 const product_create_post = (req,res) =>{

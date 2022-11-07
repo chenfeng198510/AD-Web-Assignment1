@@ -15,30 +15,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="ind" >
-    
-    <img src="dog and cat1.png" alt="picInLanding">
-    <br>
-    <div style="margin:150px">
-    <h1>Lovely Pet provides professional <br> host and health service for your pets!</h1>
 
-    <section class="show">
-        <table class="table">
-            <tr>
-            <th>Name</th>
-            <th>image`</th>
-            <th>price</th>
-        </tr>
         <% add.forEach(function(product){ %>
-            <tr> <td> <h4><%= product.name %></h4> </td>    
-            <td><img src="<%= product.image %>" alt="" style="width: 100px;height: 100px;"> </td>
-            <td><h5><%=product.price%></h5></td>
-            <td><a class="btn btn-warning" href="/product/<%= product._id %>">EDIT </a></td>
-            <td><form action="delete/<%=product._id%>" method="POST"><button class="btn btn-danger">Delete</button></form></td>
-            </tr>
-        <% }) %>
-    </table>
-    </section>
-    
+            
+    <div style="margin:50px; display: inline-grid;">
+            <h4><%= product.name %></h4> 
+            <img src="<%= product.image %>" alt="" style="width: 300px;height: 250px;">
+            <H5>Address:</H5> 
+             <h5>Price: <%=product.price%> CAD</h5></td>
+             <a class="btn btn-warning" href="/product/<%= product._id %>">Register</a>
+             <br>
+             <a class="btn btn-warning" href="/product/<%= product._id %>">Add to Cart</a>
+    </div>
+
+         <% }) %>
 </div>
 
 </body>
