@@ -24,7 +24,7 @@
                             </ul>
                         </li>
                         <li><a href="create">Host</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="/application">Services</a></li>
                         <li><a href="/secured">Secured</a></li>
                         <li><a href="/contactus">Contact Us</a></li>
                     </ul>
@@ -33,7 +33,7 @@
                             <form action="" class="navbar-form">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
+                                        <input type="search" onkeyup="myFunction()"name="search" id="myinput" placeholder="Search Anything Here..." class="form-control">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
                                     </div>
                                 </div>
@@ -57,3 +57,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByClassName("list");
+        for (i = 0; i < 10; i++) {
+            a = li[i].getElementsByTagName("h3")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>

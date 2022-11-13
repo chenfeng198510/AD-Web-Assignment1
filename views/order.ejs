@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+    <title>Home</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+    
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        
+                        <a href="#" class="navbar-brand" style:color:"white">Lovely Pet</a>
+                    </div>
+    
+                    <div class="navbar-collapse collapse" id="mobile_menu">
+                        <ul class="nav navbar-nav">
+                            <img = "logo.jpg">
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Company History</a></li>
+                                    <li><a href="#">Employee</a></li>
+                                    <li><a href="#">Products</a></li>
+                                    <li><a href="#">Become Host</a></li>
+                                    <li><a href="#">Pet Insurance</a></li>
+                                    <li><a href="#">More</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="create">Host</a></li>
+                            <li><a href="/application">Services</a></li>
+                            <li><a href="/secured">Secured</a></li>
+                            <li><a href="/contactus">Contact Us</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <form action="" class="navbar-form">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="search" onkeyup="myFunction()"name="search" id="myinput" placeholder="Search Anything Here..." class="form-control">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+    
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if(!isAuthenticated) { %>
+                                <li><a href="/login">Login</a></li>
+                               
+                            <% } else { %>
+                                <li><a href="/logout">Logout</a></li>
+                        
+                            <% } %>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+   <container class="container-fluid">
+              <div class="card">
+                <img src="<%= product.image %>" class="card__image" >
+             
+          
+                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                    <img class="card__thumb" src="/image.jpg" alt="" style="height:50; width:50px">
+                      
+                        <h3 class="card__title">City: <%=product.city%></h3>            
+                      <h3 class="card__title">Address: <%=product.address%></h3>
+                      <form action="/product/payment" method="POST">
+                        <script src="https://checkout.stripe.com/v2/checkout.js" data-amount="700" class="stripe-button" data-key="<%= key %>">
+                        </script>
+                        </form> 
+                      <br>
+                      <span class="card__status">Price: <%=product.price%> CAD</span>
+                
+                  <p class="card__description">Feedbacks from other Customers: </p>
+               
+            </div>          
+    </container>
+</body>  

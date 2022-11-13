@@ -17,39 +17,52 @@
 
            
 <container class="container-fluid">
-    
-        
+
             <div class="col-m-3">
                 
                 <card class="cards">
                     <% add.forEach(function(product){ %> 
                 <li>
-                  <a href="" class="card">
+                  <div class="card">
                     <img src="<%= product.image %>" class="card__image" alt="" >
                     <div class="card__overlay">
                       <div class="card__header">
                         <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
                         <img class="card__thumb" src="/image.jpg" alt="" style="height:50; width:50px">
+                       
                         <div class="card__header-text">
+                          
                           <h3 class="card__title">City: <%=product.city%></h3>            
                           <h3 class="card__title">Address: <%=product.address%></h3>
+                          <a href="/order/<%= product._id %>">Register</a>
+                                
                           <br>
                           <span class="card__status">Price: <%=product.price%> CAD</span>
+                         
+                       
                         </div>
                       </div>
-                      <p class="card__description">Feebacks from other Customer: </p>
+                      <p class="card__description">Feedbacks from other Customers: </p>
+                      
                     </div>
-                  </a>      
+                  </div>
+                        
                 </li>
+                
                 <% }) %> 
             </card>
-          
+            <form action="/product/payment" method="POST">
+              <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%- key %>">
+                 
+              </script>
+              </form>
         </div>
-           
+       
                
         </container>
-  
+       
 </div>
+
 
 </body>
 <footer>
